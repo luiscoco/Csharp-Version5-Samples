@@ -126,7 +126,7 @@ dotnet run --project P68_AsyncBasics
 
 ---
 
-## ✅ Tips & Best Practices
+## Tips & Best Practices
 
 - Prefer `Task`/`Task<T>` return types for async APIs; keep `async void` for *event handlers* only.  
 - Use `ConfigureAwait(false)` in library code if you don’t require the caller’s synchronization context.  
