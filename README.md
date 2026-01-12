@@ -5,22 +5,21 @@ Each project is a minimal console app focused on a single feature.
 
 ---
 
-## 📂 Projects in this repo
+## Projects in this repo
 
-- `P68_AsyncBasics` — `async`/`await` basics with `Task` and `Task<T>`  
-- `P69_AsyncComposition` — Task composition with `Task.WhenAll` and `Task.WhenAny`  
-- `P70_AsyncCancellation` — Cooperative cancellation via `CancellationToken`  
-- `P71_AsyncProgress` — Progress reporting with `IProgress<T>` / `Progress<T>`  
-- `P72_AsyncVoidEvent` — `async void` for **event handlers** (only)  
-- `P73_CallerInfoAttributes` — Caller info attributes: `[CallerMemberName]`, `[CallerFilePath]`, `[CallerLineNumber]`  
+- `P72_AsyncBasics` — `async`/`await` basics with `Task` and `Task<T>`  
+- `P73_AsyncComposition` — Task composition with `Task.WhenAll` and `Task.WhenAny`  
+- `P74_AsyncCancellation` — Cooperative cancellation via `CancellationToken`  
+- `P75_AsyncProgress` — Progress reporting with `IProgress<T>` / `Progress<T>`  
+- `P76_AsyncVoidEvent` — `async void` for **event handlers** (only)  
+- `P77_CallerInfoAttributes` — Caller info attributes: `[CallerMemberName]`, `[CallerFilePath]`, `[CallerLineNumber]`  
 
 > C# 5.0 is primarily about **asynchronous programming** (`async`/`await`) and **caller info attributes**.
-
 ---
 
 ## 🚀 Feature Walkthrough & Tiny Examples
 
-### 1) `async` / `await` basics (`P68_AsyncBasics`)
+### P72_AsyncBasics - async/await
 - **What’s new**: Mark methods `async` and use `await` on `Task`/`Task<T>` to write non‑blocking code that *reads like synchronous code*. The compiler rewrites it into a state machine.
 - **Sketch**:
   ```csharp
@@ -33,10 +32,9 @@ Each project is a minimal console app focused on a single feature.
   // Usage
   string html = await DownloadAsync("https://example.com");
   ```
-
 ---
 
-### 2) Compose tasks (`P69_AsyncComposition`)
+### P73_AsyncComposition - Compose tasks
 - **What’s new**: Combine multiple asynchronous operations with `Task.WhenAll` / `Task.WhenAny`.
 - **Sketch**:
   ```csharp
@@ -45,10 +43,9 @@ Each project is a minimal console app focused on a single feature.
   string[] pages = await Task.WhenAll(tasks);  // run concurrently
   var first = await Task.WhenAny(tasks);       // first to complete
   ```
-
 ---
 
-### 3) Cancellation (`P70_AsyncCancellation`)
+### P74_AsyncCancellation - Cancellation
 - **What’s new**: Cooperative cancellation pattern with `CancellationToken` and `CancellationTokenSource`.
 - **Sketch**:
   ```csharp
@@ -63,10 +60,9 @@ Each project is a minimal console app focused on a single feature.
       }
   }
   ```
-
 ---
 
-### 4) Progress reporting (`P71_AsyncProgress`)
+### P75_AsyncProgress - Progress reporting
 - **What’s new**: Report progress from async code via `IProgress<T>` / `Progress<T>`.
 - **Sketch**:
   ```csharp
@@ -82,10 +78,9 @@ Each project is a minimal console app focused on a single feature.
       }
   }
   ```
-
 ---
 
-### 5) `async void` **event handlers** (`P72_AsyncVoidEvent`)
+### P76_AsyncVoidEvent - async void, event handlers
 - **What’s new**: Event handlers can be `async void`, because the event signature requires `void`. For all other async methods, prefer `Task`/`Task<T>`.
 - **Sketch**:
   ```csharp
@@ -98,11 +93,11 @@ Each project is a minimal console app focused on a single feature.
   }
   ```
 
-> ⚠️ Avoid `async void` in regular methods (hard to catch exceptions / compose). Use it **only** for event handlers.
+> Avoid `async void` in regular methods (hard to catch exceptions / compose). Use it **only** for event handlers.
 
 ---
 
-### 6) Caller info attributes (`P73_CallerInfoAttributes`)
+### P77_CallerInfoAttributes - Caller info attributes
 - **What’s new**: Attributes from `System.Runtime.CompilerServices` let you capture the **caller’s** member name, file path, and line number *automatically*.
 - **Sketch**:
   ```csharp
@@ -117,10 +112,9 @@ Each project is a minimal console app focused on a single feature.
   // Usage:
   Log("starting...");
   ```
-
 ---
 
-## ▶ Build & Run
+## Build & Run
 
 From the repo root:
 ```bash
