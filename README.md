@@ -1,4 +1,4 @@
-# C# 5.0 Features – Sample Projects
+# C# 5.0 Features - Sample Projects
 
 This solution demonstrates the major features added in **C# 5.0** (Visual Studio 2012 / .NET 4.5).  
 Each project is a minimal console app focused on a single feature.
